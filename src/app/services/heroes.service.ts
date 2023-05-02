@@ -69,12 +69,12 @@ export class HeroesService {
   }
 
   getHeroesByTerm( term:string) : Heroe[] {
-    console.log("termino", term);
     let heroesByTerm: Heroe[] = [];
-    for( let heroe of this.heroes){
-      let name :string = heroe.nombre.toLowerCase();
+    for( let  i=0; i< this.heroes.length; i++ ){
+      let name :string = this.heroes[i].nombre.toLowerCase();
       if(name.includes(term)){
-        heroesByTerm.push(heroe);
+        this.heroes[i].id = i;
+        heroesByTerm.push( this.heroes[i]);
       }
     }
     return heroesByTerm;
